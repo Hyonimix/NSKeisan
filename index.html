@@ -249,7 +249,7 @@
 				}
 			}
 		});
-
+		// 현재 계약서 상 연봉 자동입력
 		document.getElementById('myNsAuto').addEventListener('click', function (event) {
 			event.preventDefault();
 			switch (parseInt(document.getElementById('comboBox1').value)) {
@@ -271,7 +271,7 @@
 			}
 			document.getElementById('textBox1').value = myNsSuiron;
 		});
-
+		// 이듬해 계약서 상 연봉 자동입력
 		document.getElementById('nyNsAuto').addEventListener('click', function (event) {
 			event.preventDefault();
 			switch (parseInt(document.getElementById('comboBox1').value)) {
@@ -293,7 +293,7 @@
 			}
 			document.getElementById('textBox4').value = nyNsSuiron;
 		});
-
+		// 입력완료 및 결과 표시
 		document.getElementById('button1').addEventListener('click', function (event) {
 			event.preventDefault();
 			myNenshu = parseInt(document.getElementById('textBox1').value);
