@@ -100,16 +100,23 @@
 
 	<script>
 		// 변수 선언부
-		var myNsSuiron		// 현재 내 계약서상 연봉 추론치
-		var myNenshu        // 현재 내 계약서상 연봉 (텍스트박스1)
-		var myKhSuiron      // 실제로 받는 기본급 추론치
-		var myKihonkyu		// 실제로 받는 기본급 (텍스트박스2)
-		var mySkSuiron		// 현재 내 실지급액 추론치 (기본급 추론치 * 0.8)
-		var mySikyukaku    	// 현재 내 실지급액 (텍스트박스3)
-		var myNsSkHiritsu	// 현재 내 실지급액을 현재 내 계약서상 월급(계약서상 연봉/12)으로 나눈 값
-		var nyNsSuiron		// 이듬해 계약서상 연봉 추론치
-		var nyNenshu		// 이듬해 계약서상 연봉 (텍스트박스4)
-		var nySkResult      // 이듬해 내 예상 실지급액
+		var myNsSuiron;		// 현재 내 계약서상 연봉 추론치
+		var myNenshu;        // 현재 내 계약서상 연봉 (텍스트박스1)
+		var myKhSuiron;      // 실제로 받는 기본급 추론치
+		var myKihonkyu;		// 실제로 받는 기본급 (텍스트박스2)
+		var mySkSuiron;		// 현재 내 실지급액 추론치 (기본급 추론치 * 0.8)
+		var mySikyukaku;    	// 현재 내 실지급액 (텍스트박스3)
+		var myNsSkHiritsu;	// 현재 내 실지급액을 현재 내 계약서상 월급(계약서상 연봉/12)으로 나눈 값
+		var nyNsSuiron;		// 이듬해 계약서상 연봉 추론치
+		var nyNenshu;		// 이듬해 계약서상 연봉 (텍스트박스4)
+		var nySkResult;      // 이듬해 내 예상 실지급액
+		
+		// 각 연차별 연봉 데이터
+		var shonenNs = 3600000;		// 1년
+		var ninenNs = 3900000;		// 2년
+		var sannenNs = 4400000;		// 3년
+		var yonenNs = 5000000;		// 4년
+		var gonenNs = 5600000;		// 5년
 
 		document.getElementById('comboBox1').addEventListener('change', function () {
 			// 무뇌 모드
@@ -117,16 +124,16 @@
 				// 현재 내 계약서상 연봉 추론
 				switch (parseInt(document.getElementById('comboBox1').value)) {
 					case 1:
-						myNsSuiron = 3600000; // 1년차
+						myNsSuiron = shonenNs; // 1년차
 						break;
 					case 2:
-						myNsSuiron = 3900000; // 2년차
+						myNsSuiron = ninenNs; // 2년차
 						break;
 					case 3:
-						myNsSuiron = 4400000; // 3년차
+						myNsSuiron = sennenNs; // 3년차
 						break;
 					case 4:
-						myNsSuiron = 5000000; // 4년차
+						myNsSuiron = gonenNs; // 4년차
 						break;
 					default:
 						console.log("누군가 나에게 조국을 사랑하지 않느냐고 묻는다면, 나는 이리 대답할 것이오.");
@@ -147,16 +154,16 @@
 				// 이듬해 계약서상 연봉 추론
 				switch (parseInt(document.getElementById('comboBox1').value)) {
 					case 1:
-						nyNsSuiron = 3900000; // 이듬해 2년차
+						nyNsSuiron = ninenNs; // 이듬해 2년차
 						break;
 					case 2:
-						nyNsSuiron = 4400000; // 이듬해 3년차
+						nyNsSuiron = sannenNs; // 이듬해 3년차
 						break;
 					case 3:
-						nyNsSuiron = 5000000; // 이듬해 4년차
+						nyNsSuiron = yonenNs; // 이듬해 4년차
 						break;
 					case 4:
-						nyNsSuiron = 5600000; // 이듬해 5년차
+						nyNsSuiron = gonenNs; // 이듬해 5년차
 						break;
 					default:
 						console.log("나라가 나와 내 가족을 사랑하지 않는데 어찌 내가 나라를 사랑할 수 있겠소?");
@@ -196,16 +203,16 @@
 					// 현재 내 계약서상 연봉 추론
 					switch (parseInt(document.getElementById('comboBox1').value)) {
 						case 1:
-							myNsSuiron = 3600000; // 1년차
+							myNsSuiron = shonenNs; // 1년차
 							break;
 						case 2:
-							myNsSuiron = 3900000; // 2년차
+							myNsSuiron = ninenNs; // 2년차
 							break;
 						case 3:
-							myNsSuiron = 4400000; // 3년차
+							myNsSuiron = sennenNs; // 3년차
 							break;
 						case 4:
-							myNsSuiron = 5000000; // 4년차
+							myNsSuiron = gonenNs; // 4년차
 							break;
 						default:
 							console.log("내 조국이 나에게 헌신하였다면 단언코 그에 보답할 지언정,");
@@ -226,16 +233,16 @@
 					// 이듬해 계약서상 연봉 추론
 					switch (parseInt(document.getElementById('comboBox1').value)) {
 						case 1:
-							nyNsSuiron = 3900000; // 이듬해 2년차
+							nyNsSuiron = ninenNs; // 이듬해 2년차
 							break;
 						case 2:
-							nyNsSuiron = 4400000; // 이듬해 3년차
+							nyNsSuiron = sannenNs; // 이듬해 3년차
 							break;
 						case 3:
-							nyNsSuiron = 5000000; // 이듬해 4년차
+							nyNsSuiron = yonenNs; // 이듬해 4년차
 							break;
 						case 4:
-							nyNsSuiron = 5600000; // 이듬해 5년차
+							nyNsSuiron = gonenNs; // 이듬해 5년차
 							break;
 						default:
 							console.log("빼앗긴 내 피같은 시간을 돌려받지도 못하는데, 무얼 더 내 놓으란 말이오?");
@@ -254,16 +261,16 @@
 			event.preventDefault();
 			switch (parseInt(document.getElementById('comboBox1').value)) {
 				case 1:
-					myNsSuiron = 3600000; // 1년차
+					myNsSuiron = shonenNs; // 1년차
 					break;
 				case 2:
-					myNsSuiron = 3900000; // 2년차
+					myNsSuiron = ninenNs; // 2년차
 					break;
 				case 3:
-					myNsSuiron = 4400000; // 3년차
+					myNsSuiron = sennenNs; // 3년차
 					break;
 				case 4:
-					myNsSuiron = 5000000; // 4년차
+					myNsSuiron = gonenNs; // 4년차
 					break;
 				default:
 					console.log("내놓으라는 말에 내놓는 것이 애국이라면,");
@@ -276,16 +283,16 @@
 			event.preventDefault();
 			switch (parseInt(document.getElementById('comboBox1').value)) {
 				case 1:
-					nyNsSuiron = 3900000; // 이듬해 2년차
+					nyNsSuiron = ninenNs; // 이듬해 2년차
 					break;
 				case 2:
-					nyNsSuiron = 4400000; // 이듬해 3년차
+					nyNsSuiron = sannenNs; // 이듬해 3년차
 					break;
 				case 3:
-					nyNsSuiron = 5000000; // 이듬해 4년차
+					nyNsSuiron = yonenNs; // 이듬해 4년차
 					break;
 				case 4:
-					nyNsSuiron = 5600000; // 이듬해 5년차
+					nyNsSuiron = gonenNs; // 이듬해 5년차
 					break;
 				default:
 					console.log("나는 기꺼이 조국을 팔고 나를 기쁘게 받아주는 곳으로 떠나겠소.");
