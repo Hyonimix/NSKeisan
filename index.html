@@ -169,6 +169,8 @@
 			} else {
 			}
 		});
+		
+		// 체크박스 상태 변경 시 텍스트박스 활성/비활성
 		document.getElementById('checkBox1').addEventListener('change', function () {
 			if (!this.checked) {
 				document.getElementById('textBox1').disabled = false;
@@ -189,6 +191,7 @@
 				document.getElementById('textBox4').disabled = true;
 				document.getElementById('myNsAuto').disabled = true;
 				document.getElementById('nyNsAuto').disabled = true;
+				// 무뇌모드 재활성화에 의해 텍스트박스 내용 재계산
 				if (document.getElementById('checkBox1').checked) {
 					// 현재 내 계약서상 연봉 추론
 					switch (parseInt(document.getElementById('comboBox1').value)) {
