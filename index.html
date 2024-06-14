@@ -276,6 +276,9 @@
 					console.log("내놓으라는 말에 내놓는 것이 애국이라면,");
 					break;
 			}
+			function truncateKihonkyuu(myKhSuiron) {
+				return Math.floor(myKhSuiron / 1000) * 1000;
+			}
 			myKhSuiron = (myNsSuiron * 5) / 72;
 			myKhSuiron = truncateKihonkyuu(myKhSuiron);
 			document.getElementById('textBox1').value = myNsSuiron;
