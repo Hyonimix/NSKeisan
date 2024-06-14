@@ -26,7 +26,14 @@
 ** 변수 구성
 
 *** khSuiron: 실제로 받는 기본급 추론치
+    실제로 받는 기본급 추론치 = (5 / 6) * (현재 연봉 / 12);
+
 *** nyNsSuiron: 이듬해 연봉 추론치. 추론해준 녀석 : 구글 제미니 ^^
+	참조값(콤보박스1)			반환값
+	1:					3900000 (이듬해 2년차)
+	2: 					4400000 (이듬해 3년차)
+	3: 					5000000 (이듬해 4년차)
+	4: 					5600000 (이듬해 5년차)
 
 ** 메모
 	이것이 미래다!!
@@ -269,7 +276,11 @@
 					console.log("내놓으라는 말에 내놓는 것이 애국이라면,");
 					break;
 			}
+			myKhSuiron = (myNsSuiron * 5) / 72;
+			myKhSuiron = truncateKihonkyuu(myKhSuiron);
 			document.getElementById('textBox1').value = myNsSuiron;
+			document.getElementById('textBox2').value = myKhSuiron;
+			
 		});
 		// 이듬해 계약서 상 연봉 자동입력
 		document.getElementById('nyNsAuto').addEventListener('click', function (event) {
