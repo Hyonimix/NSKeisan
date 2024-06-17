@@ -12,8 +12,8 @@
 
 ** 개체 구성: 
 	(개체)				(타입)				(비고 및 설명)
-	checkBox1			체크박스				"무뇌 모드" (기본값: 체크됨).
-	comboBox1			콤보박스				나의 총 연차수.
+	checkBox1			체크박스			"무뇌 모드" (기본값: 체크됨).
+	comboBox1			콤보박스			나의 총 연차수.
 	textBox1			텍스트박스			"현재 나의 '계약서상' 연봉". 체크박스1 체크 상태일때, 입력 불가 상태로 하고, myNsSuiron 값을 보여줌.
 	textBox2			텍스트박스			"기본급". 변수 myKihonkyu값 입력을 위한 텍스트박스.체크박스1 체크 상태일때, 입력 불가 상태로 하고, myKhSuiron 값을 보여줌.
 	textBox3			텍스트박스			"실지급급". 변수 mySikyukaku값 입력을 위한 텍스트박스. 월급에서 실제로 지급된 금액.체크박스1 체크 상태일때, 입력 불가 상태로 하고, mySkSuiron 값을 보여줌.
@@ -30,10 +30,10 @@
 
 *** nyNsSuiron: 이듬해 연봉 추론치. 추론해준 녀석 : 구글 제미니 ^^
 	참조값(콤보박스1)			반환값
-	1:					3900000 (이듬해 2년차)
-	2: 					4400000 (이듬해 3년차)
-	3: 					5000000 (이듬해 4년차)
-	4: 					5600000 (이듬해 5년차)
+	1:							3900000 (이듬해 2년차)
+	2: 							4400000 (이듬해 3년차)
+	3: 							5000000 (이듬해 4년차)
+	4: 							5600000 (이듬해 5년차)
 
 ** 메모
 	이것이 미래다!!
@@ -51,6 +51,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<title>엔에스케이산</title>
+	    <style>
+        input, .btn, select {
+           border-radius: 12px !important;
+        }
+        .form-control {
+            border: none;
+            border-bottom: 1px solid #c0c0c0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #0275d8;
+        }
+        .form-check-input:checked {
+            background-color: #0275d8;
+            border-color: #0275d8;
+        }
+    </style>
 </head>
 
 <body>
@@ -101,15 +120,15 @@
 	<script>
 		// 변수 선언부
 		var myNsSuiron;		// 현재 내 계약서상 연봉 추론치
-		var myNenshu;        // 현재 내 계약서상 연봉 (텍스트박스1)
-		var myKhSuiron;      // 실제로 받는 기본급 추론치
+		var myNenshu;       // 현재 내 계약서상 연봉 (텍스트박스1)
+		var myKhSuiron;     // 실제로 받는 기본급 추론치
 		var myKihonkyu;		// 실제로 받는 기본급 (텍스트박스2)
 		var mySkSuiron;		// 현재 내 실지급액 추론치 (기본급 추론치 * 0.8)
-		var mySikyukaku;    	// 현재 내 실지급액 (텍스트박스3)
-		var myNsSkHiritsu;	// 현재 내 실지급액을 현재 내 계약서상 월급(계약서상 연봉/12)으로 나눈 값
+		var mySikyukaku;    // 현재 내 실지급액 (텍스트박스3)
+		var myNsSkHiritsu;	// 계약서상 연봉과 실지급액 간의 괴리 계산. 현재 내 실지급액을 현재 내 계약서상 월급(계약서상 연봉/12)으로 나눈 값
 		var nyNsSuiron;		// 이듬해 계약서상 연봉 추론치
 		var nyNenshu;		// 이듬해 계약서상 연봉 (텍스트박스4)
-		var nySkResult;      // 이듬해 내 예상 실지급액
+		var nySkResult;     // 이듬해 내 예상 실지급액
 		
 		// 각 연차별 연봉 데이터
 		var shonenNs = 3600000;		// 1년
@@ -318,7 +337,7 @@
 			myNsSkHiritsu = mySikyukaku / (myNenshu / 12);
 			nySkResult = (nyNenshu / 12) * myNsSkHiritsu;
 
-			document.getElementById('Result').value = Math.floor(nySkResult / 1000) * 1000;
+			document.getElementById('Result').value = Math.floor(nySkResult / 10) * 10;
 		});
 	</script>
 </body>
